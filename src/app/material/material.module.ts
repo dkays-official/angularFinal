@@ -1,12 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -19,7 +23,12 @@ import {MatMenuModule} from '@angular/material/menu';
     MatInputModule,
     MatFormFieldModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatRadioModule
+    
   ],
   exports: [
     CommonModule,
@@ -29,7 +38,11 @@ import {MatMenuModule} from '@angular/material/menu';
     MatFormFieldModule,
     MatDividerModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatRadioModule
   ],
 })
 export class MaterialModule { }

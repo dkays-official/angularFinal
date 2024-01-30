@@ -1,13 +1,8 @@
 <mat-toolbar color="primary">
   <span>Deepak</span>
   <div class="spacer"></div>
-  <a mat-button
-    >Create Assessment +
-    <mat-icon
-      svgIcon="plus"
-      aria-hidden="false"
-      aria-label="Example thumbs up SVG icon"
-    ></mat-icon>
+  <a mat-button routerLink="assessment" (click)="openDialog()">
+    Create Assessment +
   </a>
   <button mat-button
     (click)="logout()">

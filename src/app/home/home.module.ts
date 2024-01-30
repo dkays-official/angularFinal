@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { HomepageComponent } from './components/homepage/homepage.component';
 import { MaterialModule } from '../material/material.module';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { SharedModule } from '../shared/shared.module';
 import { AssessmentComponent } from './components/assessment/assessment.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeRoutingModule } from './home-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [  
@@ -13,7 +16,10 @@ import { AssessmentComponent } from './components/assessment/assessment.componen
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    HomeRoutingModule,
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }

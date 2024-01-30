@@ -1,1 +1,45 @@
-<p>assessment works!</p>
+<form [formGroup]="quesForm">
+  <h2 mat-dialog-title>Create Assignment</h2>
+  <mat-dialog-content class="mat-typography">
+    <h3>Enter the Question</h3>
+    <app-input
+      [placeholder]="'Question'"
+      [type]="'text'"
+      [loginForm]="quesForm"
+      [control]="'question'"
+    ></app-input>
+    <h4>Mode of Answer</h4>
+    <mat-form-field appearance="outline">
+      <mat-label>Preffered Mode of Answer</mat-label>
+      <mat-select (selectionChange)="selectedOpt($event)">
+        @for (opt of optType; track optType) {
+        <mat-option [value]="opt.value">{{ opt.viewValue }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    @if (this.selectedDropDown == "radio" || this.selectedDropDown ==
+    "checkBox") {
+    <ng-container *ngFor="let option of options; let i = index">
+      @if (i<4) {
+      <app-input
+        placeholder="{{ option }}"
+        [type]="'text'"
+        [loginForm]="quesForm"
+        [control]="'option'"
+      ></app-input>
+      }
+    </ng-container>
+    <button mat-raised-button color="primary">Add Option</button>
+    }
+    <section class="example-section">
+      <mat-checkbox class="example-margin">Required</mat-checkbox>
+      <mat-checkbox class="example-margin">Others</mat-checkbox>
+    </section>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+      Install
+    </button>
+  </mat-dialog-actions>
+</form>

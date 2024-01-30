@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="wrapper">
+    <form [formGroup]="loginForm">
+      <h1 class="md-display-3">Staff Login</h1>
+      <app-input
+        [placeholder]="'Username'"
+        [type]="'text'"
+        [loginForm]="loginForm"
+        [control]="'username'"
+      >
+      </app-input>
+      <app-input
+        [placeholder]="'Password'"
+        [type]="'password'"
+        [loginForm]="loginForm"
+        [control]="'password'"
+      ></app-input>
+      <button mat-raised-button color="primary" (click)="login()">Login</button>
+    </form>
+  </div>
+</div>

@@ -1,20 +1,26 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  styleUrl: './input.component.css'
+  styleUrl: './input.component.css',
 })
 export class InputComponent implements OnInit {
-  @Input() placeholder : string = '';
+  @Input() placeholder: string = '';
   @Input() type?: 'text' | 'password' | 'email';
   @Input() control: string = '';
-  @Input() label : string = '';
+  @Input() label: string = '';
   @Input() loginForm!: FormGroup;
+  @Input() isDisabled : boolean = false;
 
   ngOnInit(): void {
-    this.loginForm.addControl(this.control, new FormControl(''));
+    this.loginForm.addControl(
+      this.control,
+      new FormControl(
+        { value: '', disabled: this.isDisabled },
+        Validators.required
+      )
+    );
   }
-
 }

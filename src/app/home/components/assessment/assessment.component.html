@@ -1,6 +1,13 @@
 <form [formGroup]="quesForm">
   <h2 mat-dialog-title>Create Assignment</h2>
   <mat-dialog-content class="mat-typography">
+    <h1>Enter the Title of Assignment</h1>
+    <app-input
+      [placeholder]="'Assignment Title'"
+      [type]="'text'"
+      [loginForm]="quesForm"
+      [control]="'AssignmentTitle'"
+      ></app-input>
     <h3>Enter the Question</h3>
     <app-input
       [placeholder]="'Question'"
@@ -21,25 +28,40 @@
     "checkBox") {
     <ng-container *ngFor="let option of options; let i = index">
       @if (i<4) {
-      <app-input
-        placeholder="{{ option }}"
-        [type]="'text'"
-        [loginForm]="quesForm"
-        [control]="'option'"
-      ></app-input>
+      <div class="optionWrapper">
+        <app-input
+          [placeholder]="'Option'"
+          [type]="'text'"
+          [loginForm]="quesForm"
+          control="{{ option }}"
+        ></app-input>
+        @if (i>1) {
+        <button mat-button (click)="delOption(i)">
+          <i class="material-icons">delete</i>
+        </button>
+        }
+      </div>
       }
     </ng-container>
-    <button mat-raised-button color="primary">Add Option</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addOption()"
+      [disabled]="disabled"
+    >
+      Add Option
+    </button>
     }
     <section class="example-section">
-      <mat-checkbox class="example-margin">Required</mat-checkbox>
+      <mat-checkbox class="example-margin" (change)="checkBoxHandler($event)">Required</mat-checkbox>
       <mat-checkbox class="example-margin">Others</mat-checkbox>
     </section>
+    <button mat-raised-button color="primary" (click)="addQuestion()">Add Another Question</button>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
-      Install
+    <button mat-raised-button (click)="saveAssignment()" color="primary">
+      Create Assignment
     </button>
   </mat-dialog-actions>
 </form>

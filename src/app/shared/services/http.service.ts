@@ -11,4 +11,7 @@ export class HttpService {
   getStaff(): Observable<any> {
     return this._http.get(this.url + 'staff');
   }
+  createAssignment(assignment: any): Observable<any> {
+    return this._http.post(this.url + 'assignments', assignment);
+  }
 }

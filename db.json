@@ -2,5 +2,6 @@
   "staff": [
     { "username": "admin", "password": "admin" },
     { "username": "test", "password": "test" }    
-  ]
+  ],
+  "assignments": []
 }

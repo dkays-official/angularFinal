@@ -78,7 +78,7 @@ export class AssessmentComponent {
     this._http.createAssignment(assignment).subscribe();
     this._http.getAssignments().subscribe((assignments: any) => {});
   }
-
+ 
   checkBoxHandler(isCheck: any) {
     this.isChecked = isCheck;
   }

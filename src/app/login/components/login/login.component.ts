@@ -23,11 +23,9 @@ export class LoginComponent {
           user.password == staffData.password
         ) {
           localStorage.setItem('LoggedStaff', staff);
-          this._router.navigateByUrl('/homepage')
-          
+          this._router.navigateByUrl('/homepage');
         }
       });
-      });
-      
+    });
   }
 }

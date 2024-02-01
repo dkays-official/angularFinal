@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../../../shared/services/http.service';
 @Component({
   selector: 'app-assessment',
@@ -7,19 +7,20 @@ import { HttpService } from '../../../shared/services/http.service';
   styleUrl: './assessment.component.css',
 })
 export class AssessmentComponent {
-  selectedDropDown: any;
+  selectedDropDown!: string;
   quesForm: FormGroup;
-  isChecked! : false;
-  isTitleDisabled : boolean = false;
-  questions: any[] = [];
-  assignmentTitle = "";
-
+  isChecked: boolean = false;
+  isTitleDisabled: boolean = false;
+  questions: Object[] = [];
+  assignmentTitle = '';
+  optionsForm!: FormGroup;
 
   disabled = false;
-  constructor(private _http : HttpService) {
+  constructor(private _http: HttpService) {
     this.quesForm = new FormGroup({});
+    this.optionsForm = new FormGroup({});
   }
-  options = ['Option1', 'Option2'];
+  options: string[] = ['Option1', 'Option2'];
   optType = [
     { value: 'checkBox', viewValue: 'Check Box' },
     { value: 'radio', viewValue: 'Radio Button' },
@@ -28,57 +29,57 @@ export class AssessmentComponent {
   selectedOpt(opt: any) {
     this.selectedDropDown = opt.value;
   }
-  addOption(){
-    let len = this.options.length
-    if(len<3){
-      this.options.push("option" + ++len)
-    }
-    else if(this.options.length == 3){
-      this.options.push("option" + ++len)
-      this.disabled = true;      
-    }
+  addOption() {
+    let i = 2;
+    this.optionsForm.addControl(
+      'option' + ++i,
+      new FormControl('', Validators.required)
+    );
   }
-  delOption(i: number){
+  delOption(i: number) {
+    this.quesForm.removeControl(this.options[i]);
     this.options.splice(i, 1);
-    this.disabled = false;
   }
-  addQuestion(){
-    if(this.quesForm.valid){
+  addQuestion() {
+    if (this.quesForm.valid) {
       const formValues = this.quesForm.value;
       this.assignmentTitle = formValues.AssignmentTitle;
-      if(this.quesForm.controls['AssignmentTitle']){
-        this.quesForm.removeControl("AssignmentTitle")
-      }
       const qTitle = formValues.question;
       const selectedDropDown = this.selectedDropDown;
-      let options : any[] = [];
+
       let qRequired = false;
-      if(this.isChecked){
+      if (this.isChecked) {
         qRequired = true;
       }
-      if(this.selectedDropDown == "radio" || this.selectedDropDown == "checkBox")       
-      this.options.forEach((option : any)=>{
-       options.push(option)
-      })
-      const modeOfAns = this.selectedDropDown;
-      let question = {"qTitl": qTitle,
-      "selectedDropDown" : selectedDropDown,
-      "qRequired" : qRequired,
-      "options": options,
-      "modeOfAns": modeOfAns
+      const question = {
+        qTitl: qTitle,
+        selectedDropDown: selectedDropDown,
+        qRequired: qRequired,
+        options: this.optionsForm.value,
+      };
+      if (selectedDropDown != 'textBox') {
+        this.questions.push(question);
+      } else {
+        delete question.options;
+        this.questions.push(question);
       }
-      this.questions.push(question)
-      this.quesForm.reset()
+      localStorage.setItem('AssignmentTitle', this.assignmentTitle);
+      this.quesForm.reset();
+      this.optionsForm.reset();
+      this.quesForm.removeControl('AssignmentTitle');
     }
   }
 
-  saveAssignment(){
-    let assignment = {"AssignmentTitle": this.assignmentTitle,
-    "questions": this.questions  
+  saveAssignment() {
+    const assignment = {
+      AssignmentTitle: this.assignmentTitle,
+      questions: this.questions,
+    };
+    this._http.createAssignment(assignment).subscribe();
+    this._http.getAssignments().subscribe((assignments: any) => {});
   }
-    this._http.createAssignment(assignment)
-  }
-  checkBoxHandler(isCheck: any){
+
+  checkBoxHandler(isCheck: any) {
     this.isChecked = isCheck;
   }
 }

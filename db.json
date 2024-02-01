@@ -1,7 +1,88 @@
 {
   "staff": [
-    { "username": "admin", "password": "admin" },
-    { "username": "test", "password": "test" }    
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": "f18e"
+    },
+    {
+      "username": "test",
+      "password": "test",
+      "id": "f532"
+    }
   ],
-  "assignments": []
+  "assignments": [
+    {
+      "id": "a72b",
+      "AssignmentTitle": "Deepak k liye test",
+      "questions": [
+        {
+          "qTitl": "Tera naam kya hai?",
+          "selectedDropDown": "radio",
+          "qRequired": true,
+          "options": {
+            "option1": "Deepak",
+            "option2": "Shashank"
+          },
+          "modeOfAns": "radio"
+        }
+      ]
+    },
+    {
+      "id": "ce38",
+      "questions": [
+        {
+          "qTitl": "What is your name?",
+          "selectedDropDown": "radio",
+          "qRequired": true,
+          "options": {
+            "option1": "Shashank",
+            "option2": "Deepak"
+          },
+          "modeOfAns": "radio"
+        },
+        {
+          "qTitl": "How old are you?",
+          "selectedDropDown": "textBox",
+          "qRequired": true,
+          "options": {
+            "option1": null,
+            "option2": null
+          },
+          "modeOfAns": "textBox"
+        }
+      ]
+    },
+    {
+      "id": "9835",
+      "AssignmentTitle": "test",
+      "questions": [
+        {
+          "qTitl": "test",
+          "selectedDropDown": "textBox",
+          "qRequired": true,
+          "options": {}
+        }
+      ]
+    },
+    {
+      "id": "096f",
+      "questions": [
+        {
+          "qTitl": "Hi Deepak How are you?",
+          "selectedDropDown": "textBox",
+          "qRequired": true
+        },
+        {
+          "qTitl": "How old are you deepak?",
+          "selectedDropDown": "radio",
+          "qRequired": true,
+          "options": {
+            "option1": "20-25",
+            "option2": "15-20"
+          }
+        }
+      ]
+    }
+  ]
 }

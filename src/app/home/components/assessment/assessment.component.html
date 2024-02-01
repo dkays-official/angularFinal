@@ -1,13 +1,15 @@
 <form [formGroup]="quesForm">
   <h2 mat-dialog-title>Create Assignment</h2>
   <mat-dialog-content class="mat-typography">
-    <h1>Enter the Title of Assignment</h1>
-    <app-input
-      [placeholder]="'Assignment Title'"
-      [type]="'text'"
-      [loginForm]="quesForm"
-      [control]="'AssignmentTitle'"
+    <ng-container *ngIf="!questions.length">
+      <h1>Enter the Title of Assignment</h1>
+      <app-input
+        [placeholder]="'Assignment Title'"
+        [type]="'text'"
+        [loginForm]="quesForm"
+        [control]="'AssignmentTitle'"
       ></app-input>
+    </ng-container>
     <h3>Enter the Question</h3>
     <app-input
       [placeholder]="'Question'"
@@ -24,39 +26,53 @@
         }
       </mat-select>
     </mat-form-field>
-    @if (this.selectedDropDown == "radio" || this.selectedDropDown ==
-    "checkBox") {
-    <ng-container *ngFor="let option of options; let i = index">
-      @if (i<4) {
-      <div class="optionWrapper">
+    <div
+      *ngIf="selectedDropDown === 'radio' || selectedDropDown === 'checkBox'"
+    >
+      Options
+      <form [formGroup]="optionsForm">
         <app-input
           [placeholder]="'Option'"
           [type]="'text'"
-          [loginForm]="quesForm"
-          control="{{ option }}"
+          [loginForm]="optionsForm"
+          [control]="'option1'"
         ></app-input>
-        @if (i>1) {
-        <button mat-button (click)="delOption(i)">
+        <app-input
+          [placeholder]="'Option'"
+          [type]="'text'"
+          [loginForm]="optionsForm"
+          [control]="'option2'"
+        ></app-input>
+      </form>
+      <!-- <div *ngFor="let option of options; let i = index" class="optionWrapper">
+        <app-input
+          [placeholder]="'Option ' + (i + 1)"
+          [type]="'text'"
+          [loginForm]="quesForm"
+          [control]="option"
+        ></app-input>
+        <button *ngIf="i > 1" mat-button (click)="delOption(i)">
           <i class="material-icons">delete</i>
         </button>
-        }
       </div>
-      }
-    </ng-container>
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="addOption()"
-      [disabled]="disabled"
-    >
-      Add Option
-    </button>
-    }
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addOption()"
+        [disabled]="options.length >= 4"
+      >
+        Add Option
+      </button> -->
+    </div>
     <section class="example-section">
-      <mat-checkbox class="example-margin" (change)="checkBoxHandler($event)">Required</mat-checkbox>
+      <mat-checkbox class="example-margin" (change)="checkBoxHandler($event)"
+        >Required</mat-checkbox
+      >
       <mat-checkbox class="example-margin">Others</mat-checkbox>
     </section>
-    <button mat-raised-button color="primary" (click)="addQuestion()">Add Another Question</button>
+    <button mat-raised-button color="primary" (click)="addQuestion()">
+      Add Another Question
+    </button>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>

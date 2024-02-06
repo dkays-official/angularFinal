@@ -1,0 +1,14 @@
+<div class="container">
+    <ng-container *ngFor="let assignment of assignments; index as i">
+        <div class="assignmentWrapper">
+            <div class="title">
+                <h2> {{ assignment.AssignmentTitle | uppercase }} </h2>
+                <small><b>Created By : </b>{{assignment.createdBy | uppercase}} </small>
+                <br>
+                <small><b>Created On : </b>{{createdOn  | date:'dd/MM/YYYY'}}</small>
+            </div>
+            <button mat-raised-button color="primary" (click)="openDialog()"> Take Test </button>
+        </div>
+    </ng-container>
+</div>
+

@@ -7,12 +7,16 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TakeassignmentComponent } from './components/takeassignment/takeassignment.component';
+import { QuestionaireComponent } from './components/questionaire/questionaire.component';
 
 @NgModule({
   declarations: [  
     HomepageComponent,
     NavbarComponent,
-    AssessmentComponent
+    AssessmentComponent,
+    TakeassignmentComponent,
+    QuestionaireComponent
   ],
   imports: [
     CommonModule,
@@ -22,4 +26,5 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ]
 })
-export class HomeModule { }
+export class HomeModule { 
+}

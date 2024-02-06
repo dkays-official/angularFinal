@@ -17,8 +17,7 @@ import { HomeModule } from './home/home.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     LoginModule,
-    SharedModule,
-    HomeModule
+    SharedModule
   ],
   providers: [
     provideClientHydration()

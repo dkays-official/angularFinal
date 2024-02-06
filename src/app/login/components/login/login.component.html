@@ -5,14 +5,14 @@
       <app-input
         [placeholder]="'Username'"
         [type]="'text'"
-        [loginForm]="loginForm"
+        [formGroup]="loginForm"
         [control]="'username'"
       >
       </app-input>
       <app-input
         [placeholder]="'Password'"
         [type]="'password'"
-        [loginForm]="loginForm"
+        [formGroup]="loginForm"
         [control]="'password'"
       ></app-input>
       <button mat-raised-button color="primary" (click)="login()">Login</button>

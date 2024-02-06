@@ -22,7 +22,7 @@ export class LoginComponent {
           user.username == staffData.username &&
           user.password == staffData.password
         ) {
-          localStorage.setItem('LoggedStaff', staff);
+          localStorage.setItem('LoggedStaff', user.username);
           this._router.navigateByUrl('/homepage');
         }
       });

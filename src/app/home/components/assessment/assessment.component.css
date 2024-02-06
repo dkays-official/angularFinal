@@ -9,4 +9,15 @@
 }
 form{
     width: 700px;
+    padding: 20px;
+}
+.optionForm{
+    width: 100%;
+}
+.delete{
+    position: absolute;
+    color: red;
+}
+.optionWrapper{
+    position: relative;
 }

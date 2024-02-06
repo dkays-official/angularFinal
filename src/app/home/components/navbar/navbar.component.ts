@@ -6,19 +6,22 @@ import { AssessmentComponent } from '../assessment/assessment.component';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-
-  constructor(private _router : Router, public dialog: MatDialog){}
-  logout(){
-    localStorage.removeItem("LoggedStaff");
+  loggedStaff: any;
+  constructor(private _router: Router, public dialog: MatDialog) {
+    if (localStorage.getItem('LoggedStaff')) {
+      this.loggedStaff = localStorage.getItem('LoggedStaff');
+      this.loggedStaff = this.loggedStaff.toUpperCase();
+    }
+  }
+  logout() {
+    localStorage.removeItem('LoggedStaff');
     this._router.navigateByUrl('login');
   }
   openDialog() {
     const dialogRef = this.dialog.open(AssessmentComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogRef.afterClosed().subscribe();
   }
 }

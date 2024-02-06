@@ -11,16 +11,13 @@ export class InputComponent implements OnInit {
   @Input() type?: 'text' | 'password' | 'email';
   @Input() control: string = '';
   @Input() label: string = '';
-  @Input() loginForm!: FormGroup;
-  @Input() isDisabled : boolean = false;
+  @Input() formGroup!: FormGroup;
+  @Input() isDisabled: boolean = false;
 
   ngOnInit(): void {
-    this.loginForm.addControl(
+    this.formGroup.addControl(
       this.control,
-      new FormControl(
-        { value: '', disabled: this.isDisabled },
-        Validators.required
-      )
+      new FormControl('', Validators.required)
     );
   }
 }

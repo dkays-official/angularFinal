@@ -1,23 +1,23 @@
-.optionWrapper{
-    position: relative;
+.optionWrapper {
+  position: relative;
 }
-.optionWrapper button{
-    position: absolute;
-    z-index: 999;
-    top: 10px;
-    color: red;
+.optionWrapper button {
+  position: absolute;
+  z-index: 999;
+  top: 10px;
+  color: red;
 }
-form{
-    width: 700px;
-    padding: 20px;
+form {
+  width: 700px;
+  padding: 20px;
 }
-.optionForm{
-    width: 100%;
+.optionForm {
+  width: 100%;
 }
-.delete{
-    position: absolute;
-    color: red;
+.delete {
+  position: absolute;
+  color: red;
 }
-.optionWrapper{
-    position: relative;
+.optionWrapper {
+  position: relative;
 }

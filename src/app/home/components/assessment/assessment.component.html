@@ -18,9 +18,12 @@
       [control]="'question'"
     ></app-input>
     <h4>Mode of Answer</h4>
-    <mat-form-field appearance="outline" [formGroup] = "quesForm">
+    <mat-form-field appearance="outline" [formGroup]="quesForm">
       <mat-label>Preferred Mode of Answer</mat-label>
-      <mat-select (selectionChange)="selectedOpt($event)" formControlName="dropDown">
+      <mat-select
+        (selectionChange)="selectedOpt($event)"
+        formControlName="dropDown"
+      >
         @for (opt of optType; track optType) {
         <mat-option [value]="opt.value">{{ opt.viewValue }}</mat-option>
         }
@@ -34,29 +37,33 @@
         <ng-container *ngFor="let option of optionsArray; index as i">
           <div class="optionWrapper">
             <app-input
-            [placeholder]="'Option'"
-            [type]="'text'"
-            [formGroup]="optionsForm"
-            [control]="option"
-          ></app-input>
-          @if (i>1) {<button class="delete" mat-button (click)="delOption(i)">
-            <mat-icon class="delete">delete</mat-icon></button
-          >}
-          </div>          
+              [placeholder]="'Option'"
+              [type]="'text'"
+              [formGroup]="optionsForm"
+              [control]="option"
+            ></app-input>
+            @if (i>1) {<button class="delete" mat-button (click)="delOption(i)">
+              <mat-icon class="delete">delete</mat-icon></button
+            >}
+          </div>
         </ng-container>
       </form>
-      <button *ngIf="selectedDropDown == 'radio' || selectedDropDown == 'checkBox'"
-          mat-raised-button
-          (click)="addOption()"
-          [disabled]="isAddDisabled"
-          color="primary" 
-        >
-          Add Option
-        </button>
+      <button
+        mat-raised-button
+        (click)="addOption()"
+        [disabled]="i >= 4"
+        color="primary"
+      >
+        Add Option
+      </button>
     </div>
     <section class="example-section" [formGroup]="quesForm">
-      <mat-checkbox class="example-margin" formControlName="isRequired" (change)="isRequiredHandler($event)"
-       [formGroup] = "quesForm" >Required</mat-checkbox
+      <mat-checkbox
+        class="example-margin"
+        formControlName="isRequired"
+        (change)="isRequiredHandler($event)"
+        [formGroup]="quesForm"
+        >Required</mat-checkbox
       >
     </section>
     <button mat-raised-button color="primary" (click)="saveQuestion()">
@@ -66,7 +73,12 @@
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
     @if (questions.length ) {
-    <button mat-raised-button (click)="saveAssignment()" color="primary" mat-dialog-close>
+    <button
+      mat-raised-button
+      (click)="saveAssignment()"
+      color="primary"
+      mat-dialog-close
+    >
       Create Assignment
     </button>
     }

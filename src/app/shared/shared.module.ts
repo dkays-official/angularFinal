@@ -4,21 +4,12 @@ import { InputComponent } from './components/input/input.component';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpService } from './services/http.service';
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    InputComponent
-  ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    ReactiveFormsModule
-  ],
-  exports: [
-    InputComponent,
-  ],
-  providers: [HttpService]
+  declarations: [InputComponent],
+  imports: [CommonModule, MaterialModule, ReactiveFormsModule, HttpClientModule],
+  exports: [InputComponent],
+  providers: [HttpService],
 })
-export class SharedModule { }
+export class SharedModule {}

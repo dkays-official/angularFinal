@@ -1,11 +1,8 @@
 <mat-toolbar color="primary">
-  <span>Hello! {{loggedStaff}}</span>
+  <span>Hello! {{ loggedStaff }}</span>
   <div class="spacer"></div>
-  <a mat-button (click)="openDialog()">
-    Create Assessment +
-  </a>
-  <button mat-button
-    (click)="logout()">
+  <a mat-button (click)="openDialog()"> Create Assessment + </a>
+  <button mat-button (click)="logout()">
     <i class="material-icons"> logout </i>
   </button>
 </mat-toolbar>

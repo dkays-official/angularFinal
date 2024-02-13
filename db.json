@@ -13,141 +13,219 @@
   ],
   "assignments": [
     {
-      "id": "f6f6",
-      "AssignmentTitle": "title ",
+      "id": "f9c5",
+      "AssignmentTitle": "asdfasdasdffasd",
       "questions": [
         {
-          "qTitl": "question a",
-          "selectedDropDown": "checkBox",
-          "qRequired": false,
-          "options": {
-            "options1": "a",
-            "options2": "v"
-          }
-        }
-      ],
-      "createdBy": null
-    },
-    {
-      "id": "6265",
-      "AssignmentTitle": "title 2",
-      "questions": [
-        {
-          "qTitl": "qu 1",
-          "selectedDropDown": "checkBox",
-          "qRequired": false,
-          "options": {
-            "options1": "ABC",
-            "options2": "def"
-          }
-        }
-      ],
-      "createdBy": null
-    },
-    {
-      "id": "6138",
-      "AssignmentTitle": "TITKW",
-      "questions": [
-        {
-          "qTitl": "RRRRR",
-          "selectedDropDown": "checkBox",
-          "qRequired": false,
-          "options": {
-            "options1": "DASDASD",
-            "options2": "SAAAD",
-            "option3": "FFFFFF"
-          }
-        }
-      ],
-      "createdBy": null
-    },
-    {
-      "id": "3e99",
-      "AssignmentTitle": "ddd",
-      "questions": [
-        {
-          "qTitl": "www",
-          "selectedDropDown": "checkBox",
-          "qRequired": false,
-          "options": {
-            "options1": "dd",
-            "options2": "vv",
-            "option3": "bbb"
-          }
-        },
-        {
-          "qTitl": "3456789",
-          "selectedDropDown": "checkBox",
-          "qRequired": false,
-          "options": {
-            "options1": "23456",
-            "options2": "rt678i",
-            "option3": "6789"
-          }
-        },
-        {
-          "qTitl": "456789",
-          "selectedDropDown": "checkBox",
-          "qRequired": false,
-          "options": {
-            "options1": "fghjk",
-            "options2": "ghjkl;"
-          }
-        }
-      ],
-      "createdBy": "test"
-    },
-    {
-      "id": "65ab",
-      "AssignmentTitle": "3456789",
-      "questions": [
-        {
-          "qTitl": "4567890",
-          "selectedDropDown": "checkBox",
-          "qRequired": false,
-          "options": {
-            "options1": "ghjkl",
-            "options2": "fghj",
-            "option3": "fghjk"
-          }
-        }
-      ],
-      "createdBy": "test"
-    },
-    {
-      "id": "76ec",
-      "AssignmentTitle": "rfgdsafa",
-      "questions": [
-        {
-          "qTitl": "affadasf",
+          "qTitl": "asdfdsasdfdsdsfa",
           "selectedDropDown": "textBox",
-          "qRequired": true
-        }
-      ],
-      "createdBy": "test"
-    },
-    {
-      "id": "d808",
-      "AssignmentTitle": "asdfsdfadsf",
-      "questions": [
-        {
-          "qTitl": "asdfasdfasfd",
-          "selectedDropDown": "textBox",
-          "qRequired": true
+          "qRequired": true,
+          "options": [
+            "options1",
+            "options2"
+          ]
         },
         {
-          "qTitl": "asdfadsfsadf",
+          "qTitl": "asdfdasadsfdfas",
+          "selectedDropDown": "checkBox",
+          "qRequired": true,
+          "options": [
+            "options1",
+            "options2",
+            "option3",
+            "option4"
+          ]
+        },
+        {
+          "qTitl": "asdfasdafssdfsdfadsdffadsasdfds",
           "selectedDropDown": "radio",
           "qRequired": true,
-          "options": {
-            "options1": "fdasdffsdd",
-            "options2": "sadfasdfasdfdaf",
-            "option3": "asdfsdafsadfs",
-            "option4": "sadfsadfasdfsadfsfdadsf"
-          }
+          "options": [
+            "options1",
+            "options2",
+            "option3",
+            "option4"
+          ]
         }
       ],
       "createdBy": "test"
+    },
+    {
+      "id": "3d1c",
+      "AssignmentTitle": "tredfgasgd",
+      "questions": [
+        {
+          "qTitl": "dsdfdsggds",
+          "selectedDropDown": "textBox",
+          "qRequired": true,
+          "options": [
+            "",
+            ""
+          ]
+        },
+        {
+          "qTitl": "dfsgsdgd",
+          "selectedDropDown": "radio",
+          "qRequired": true,
+          "options": [
+            "dsfgdsdsg",
+            "dsfdsdsgsdgdg"
+          ]
+        },
+        {
+          "qTitl": "dfsdsgdsdf",
+          "selectedDropDown": "checkBox",
+          "qRequired": true,
+          "options": [
+            "dgssdgdsdf",
+            "ssdfgsddsgdsgdgsdsg"
+          ]
+        }
+      ],
+      "createdBy": "test"
+    },
+    {
+      "id": "b1db",
+      "AssignmentTitle": "alskdjlkfsadjlksfdajklsdajkljaksldj",
+      "questions": [
+        {
+          "qTitl": ";lkjafsldkjfasdkljasdflkfsjksd",
+          "selectedDropDown": "textBox",
+          "qRequired": true,
+          "options": [
+            "",
+            ""
+          ]
+        },
+        {
+          "qTitl": "dfnlsa;djksafdjisfd;jilafsjlsd",
+          "selectedDropDown": "checkBox",
+          "qRequired": true,
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        {
+          "qTitl": "jasdfjkl;adsjilasfdjioaspdfjfasradio",
+          "selectedDropDown": "radio",
+          "qRequired": true,
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ],
+      "createdBy": "test"
+    }
+  ],
+  "responses": [
+    {
+      "id": "74e2",
+      "quesAns": [
+        {
+          "question": "asdfdsasdfdsdsfa",
+          "ans": "asdf;kjhsadklfjsalkdjsfdl"
+        },
+        {
+          "question": "asdfdasadsfdfas",
+          "ans": "option4"
+        },
+        {
+          "question": "asdfasdafssdfsdfadsdffadsasdfds",
+          "ans": "options2"
+        }
+      ]
+    },
+    {
+      "id": "8ccb",
+      "assignmentTitle": "tredfgasgd",
+      "quesAns": [
+        {
+          "question": "dsdfdsggds",
+          "ans": "sadfljlsdkfjlisdjfklasdjilfjaslkdjfklasdjl"
+        },
+        {
+          "question": "dfsgsdgd",
+          "ans": "dsfdsdsgsdgdg"
+        },
+        {
+          "question": "dfsdsgdsdf",
+          "ans": "ssdfgsddsgdsgdgsdsg"
+        }
+      ],
+      "assignmentId": "3d1c"
+    },
+    {
+      "id": "7ae6",
+      "assignmentTitle": "asdfasdasdffasd",
+      "quesAns": [
+        {
+          "question": "asdfdsasdfdsdsfa"
+        },
+        {
+          "question": "asdfdasadsfdfas"
+        },
+        {
+          "question": "asdfasdafssdfsdfadsdffadsasdfds"
+        }
+      ],
+      "assignmentId": "f9c5"
+    },
+    {
+      "id": "c928",
+      "assignmentTitle": "tredfgasgd",
+      "quesAns": [
+        {
+          "question": "dsdfdsggds"
+        },
+        {
+          "question": "dfsgsdgd"
+        },
+        {
+          "question": "dfsdsgdsdf"
+        }
+      ],
+      "assignmentId": "3d1c"
+    },
+    {
+      "id": "768c",
+      "assignmentTitle": "asdfasdasdffasd",
+      "quesAns": [
+        {
+          "question": "asdfdsasdfdsdsfa"
+        },
+        {
+          "question": "asdfdasadsfdfas"
+        },
+        {
+          "question": "asdfasdafssdfsdfadsdffadsasdfds"
+        }
+      ],
+      "assignmentId": "f9c5"
+    },
+    {
+      "id": "5d1c",
+      "assignmentTitle": "alskdjlkfsadjlksfdajklsdajkljaksldj",
+      "quesAns": [
+        {
+          "question": ";lkjafsldkjfasdkljasdflkfsjksd",
+          "ans": "asdfl'j;sldkajfklasdjlkfasdjdfasdl;fjaslksdjflkjads"
+        },
+        {
+          "question": "dfnlsa;djksafdjisfd;jilafsjlsd",
+          "ans": ""
+        },
+        {
+          "question": "jasdfjkl;adsjilasfdjioaspdfjfasradio",
+          "ans": "3"
+        }
+      ],
+      "assignmentId": "b1db"
     }
   ]
 }

@@ -16,8 +16,6 @@ export class AssessmentComponent {
   optionsArray: string[] = [];
   isAddDisabled: boolean = false;
   isRequired: boolean = false;
-
-  disabled = false;
   constructor(private _http: HttpService) {
     this.quesForm = new FormGroup({
       isRequired: new FormControl(false),
@@ -60,12 +58,14 @@ export class AssessmentComponent {
     this.optionsArray.splice(i, 1);
     this.isAddDisabled = false;
   }
+
   isRequiredHandler(isChecked: any) {
     this.isRequired = isChecked.checked;
-    console.log(this.isRequired);
   }
   saveQuestion() {
-    if (this.quesForm.valid) {
+    if (!this.quesForm.valid) {
+      return;
+    }
       const formValues = this.quesForm.value;
       this.assignmentTitle = formValues.AssignmentTitle;
       const qTitle = formValues.question;
@@ -74,7 +74,7 @@ export class AssessmentComponent {
         qTitl: qTitle,
         selectedDropDown: selectedDropDown,
         qRequired: this.isRequired.valueOf(),
-        options: this.optionsForm.value,
+        options : Object.values(this.optionsForm.value)
       };
       if (question.selectedDropDown != 'textBox') {
         if (this.optionsForm.valid) {
@@ -84,20 +84,18 @@ export class AssessmentComponent {
           return;
         }
       } else {
-        delete question.options;
         this.questions.push(question);
       }
       if (!sessionStorage.getItem('AssignmentTitle')) {
         sessionStorage.setItem('AssignmentTitle', this.assignmentTitle);
       }
-      console.log(question);
       this.optionsForm.removeControl('option3');
       this.optionsForm.removeControl('option4');
       this.quesForm.removeControl('AssignmentTitle');
       this.selectedDropDown = '';
-      this.quesForm.reset();
+      this.quesForm.reset({});
       this.optionsForm.reset();
-    }
+    
   }
 
   saveAssignment() {
@@ -107,8 +105,9 @@ export class AssessmentComponent {
       questions: this.questions,
       createdBy: loggedStaff,
     };
-    console.log(assignment);
-    this._http.createAssignment(assignment).subscribe();
+    this._http.createAssignment(assignment).subscribe({
+
+    });
     sessionStorage.removeItem('AssignmentTitle');
 
     this.quesForm.reset();

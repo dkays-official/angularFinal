@@ -1,0 +1,66 @@
+<div class="container">
+  <div *ngIf="assignment && assignment.questions" class="response">
+    <h1>{{ assignment.AssignmentTitle }}</h1>
+    <div class="question">
+      <b>Question</b><br />{{ assignment.questions[i].qTitl }}?
+      <ng-container [ngSwitch]="assignment.questions[i].selectedDropDown">
+        <div *ngSwitchCase="'textBox'">
+          <textarea
+            name=""
+            cols="40"
+            rows="10"
+            [(ngModel)]="textBoxValue"
+          ></textarea>
+        </div>
+        <div *ngSwitchCase="'checkBox'">
+          <ng-container *ngFor="let option of assignment.questions[i].options">
+            <mat-checkbox
+              [checked]="option.value"
+              (change)="checkBoxHandler(option)"
+            >
+              {{ option }} </mat-checkbox
+            ><br />
+          </ng-container>
+        </div>
+        <div *ngSwitchCase="'radio'">
+          <mat-radio-group
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group"
+            [(ngModel)]="selectedRadio"
+          >
+            <mat-radio-button
+              *ngFor="
+                let option of assignment.questions[i].options;
+                index as index
+              "
+              [value]="option"
+              >{{ option }}</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+ <div class="btnWrapper">
+  <button mat-raised-button color="primary" *ngIf="i > 0" (click)="previous()">
+    Previous
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    *ngIf="i < assignment.questions.length - 1"
+    (click)="next(i)"
+  >
+    Next
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    *ngIf="i == assignment.questions.length - 1"
+    (click)="done()"
+    mat-dialog-close
+  >
+    Done
+  </button>
+ </div>
+</div>

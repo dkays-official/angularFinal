@@ -6,25 +6,27 @@ import { AssessmentComponent } from './components/assessment/assessment.componen
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TakeassignmentComponent } from './components/takeassignment/takeassignment.component';
-import { QuestionaireComponent } from './components/questionaire/questionaire.component';
+import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
+import { HttpService } from '../shared/services/http.service';
 
 @NgModule({
-  declarations: [  
+  declarations: [
     HomepageComponent,
     NavbarComponent,
     AssessmentComponent,
     TakeassignmentComponent,
-    QuestionaireComponent
+    QuestionnaireComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     HomeRoutingModule,
     SharedModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  providers: [HttpService]
 })
-export class HomeModule { 
-}
+export class HomeModule {}

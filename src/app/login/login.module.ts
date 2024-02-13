@@ -7,19 +7,15 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from '../shared/services/http.service';
 
-
-
 @NgModule({
-  declarations: [  
-    LoginComponent,
-  ],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     SharedModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [HttpService]
+  providers: [HttpService],
 })
-export class LoginModule { }
+export class LoginModule {}

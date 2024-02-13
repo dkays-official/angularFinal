@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
+import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,9 @@ import { HomeModule } from './home/home.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     LoginModule,
-    SharedModule
+    SharedModule,
   ],
-  providers: [
-    provideClientHydration()
-  ],
+  providers: [provideHttpClient(withFetch()),  provideClientHydration()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

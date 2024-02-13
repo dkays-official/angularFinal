@@ -11,7 +11,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
-
+import { MatStepperModule } from '@angular/material/stepper';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 @NgModule({
   declarations: [],
   imports: [
@@ -26,6 +27,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatStepperModule,
   ],
   exports: [
     CommonModule,
@@ -40,6 +42,13 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatStepperModule,
+  ],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { showError: true },
+    },
   ],
 })
 export class MaterialModule {}

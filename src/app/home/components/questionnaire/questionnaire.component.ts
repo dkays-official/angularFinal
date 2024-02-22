@@ -11,7 +11,7 @@ export class QuestionnaireComponent implements OnInit {
   assignment: any;
   i: number = 0;
   quesAns: any[] = [];
-  selectedCheckBox!: string;
+  selectedCheckBox: any;
   selectedRadio!: string;
   textBoxValue!: string;
 
@@ -29,7 +29,15 @@ export class QuestionnaireComponent implements OnInit {
   ngOnInit() {}
 
   checkBoxHandler(value: any) {
-    this.selectedCheckBox = value;
+    if (!this.selectedCheckBox) {
+      this.selectedCheckBox = [value];
+    } else {
+      if (!this.selectedCheckBox.includes(value)) {
+        this.selectedCheckBox.push(value);
+      } else {
+        this.selectedCheckBox.splice(this.selectedCheckBox.indexOf(value), 1);
+      }
+    }
   }
 
   next(quesIndex: number) {
@@ -46,7 +54,7 @@ export class QuestionnaireComponent implements OnInit {
       ) {
         qnA = {
           question: this.assignment.questions[quesIndex].qTitl,
-          ans: this.selectedCheckBox,
+          ans: this.selectedCheckBox.join(', '),
         };
       } else if (
         this.assignment.questions[quesIndex].selectedDropDown === 'radio'
@@ -64,17 +72,16 @@ export class QuestionnaireComponent implements OnInit {
   previous() {
     this.i--;
   }
-
   done() {
     this.next(this.assignment.questions.length - 1);
     const response = {
       assignmentTitle: this.assignment.AssignmentTitle,
       quesAns: this.quesAns,
-      assignmentId : this.assignmentId
+      assignmentId: this.assignmentId,
     };
     this._http.saveResponse(response).subscribe({
-      next: response=>response,
-      error: err=>console.log("Something went wrong " + err)
+      next: (response) => response,
+      error: (err) => console.log('Something went wrong ' + err),
     });
   }
 }

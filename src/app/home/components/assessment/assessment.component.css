@@ -21,3 +21,7 @@ form {
 .optionWrapper {
   position: relative;
 }
+.subQuestion{
+  padding: 25px !important;
+  color: white !important;
+}

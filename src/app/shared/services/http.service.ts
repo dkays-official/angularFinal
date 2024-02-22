@@ -23,4 +23,7 @@ export class HttpService {
   saveResponse(response: any ){
     return this._http.post(this.url + 'responses', response)
   }
+  createSubQuestions(subQuestions : any){
+    return this._http.post(this.url+ 'subQuestions', subQuestions)
+  }
 }

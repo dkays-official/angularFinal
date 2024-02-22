@@ -42,6 +42,14 @@
               [formGroup]="optionsForm"
               [control]="option"
             ></app-input>
+            <button
+              class="subQuestion"
+              mat-raised-button
+              color="primary"
+              (click)="openDialog()"
+            >           
+              Sub questions 
+            </button>
             @if (i>1) {<button class="delete" mat-button (click)="delOption(i)">
               <mat-icon class="delete">delete</mat-icon></button
             >}

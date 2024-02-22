@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TakeassignmentComponent } from './components/takeassignment/takeassignment.component';
 import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
 import { HttpService } from '../shared/services/http.service';
+import { SubquestionComponent } from './components/subquestion/subquestion.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpService } from '../shared/services/http.service';
     NavbarComponent,
     AssessmentComponent,
     TakeassignmentComponent,
-    QuestionnaireComponent
+    QuestionnaireComponent,
+    SubquestionComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <h1> Add Sub Questions for option </h1>
+    <form [formGroup]="subQuestionsForm">
+        <ng-container *ngFor="let subQuestion of subQuestionsArray; let i = index">
+            <app-input
+                [placeholder]="'Sub-Question'"
+                [type]="'text'"
+                [formGroup]="subQuestionsForm"
+                [control]="subQuestion"
+            ></app-input>
+        </ng-container>    
+        <button mat-raised-button color="primary" (click)="addSubQuestion()" *ngIf="subQuestionsArray.length<4">Add More</button> 
+        <br>
+        <button mat-raised-button color="primary" (click)="saveSubQuestions()">Save Questions</button>
+    </form>
+</div>
